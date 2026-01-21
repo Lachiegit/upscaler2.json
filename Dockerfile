@@ -2,7 +2,8 @@
 FROM runpod/worker-comfyui:5.5.1-base
 
 # install custom nodes into comfyui (first node with --mode remote to fetch updated cache)
-RUN comfy node install --exit-on-fail comfyui-joycaption@2.0.2 --mode remote
+RUN comfy node install --exit-on-fail https://github.com/1038lab/ComfyUI-JoyCaption.git --mode remote
+RUN comfy node install --exit-on-fail https://github.com/kijai/ComfyUI-KJNodes.git --mode remote
 
 # download models into comfyui
 # RUN # Could not find URL for photorealisticAllPurpose_v40.safetensors
