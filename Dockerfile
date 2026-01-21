@@ -6,7 +6,7 @@ RUN comfy node install --exit-on-fail comfyui-joycaption@2.0.2 --mode remote
 
 # download models into comfyui
 # RUN # Could not find URL for photorealisticAllPurpose_v40.safetensors
-RUN comfy model download --url https://comfy.icu/files/controlnetxlCNXL_xinsirCnUnionPromax.safetensors --relative-path models/controlnet --filename controlnetxlCNXL_xinsirCnUnionPromax.safetensors
+RUN comfy model download --url https://huggingface.co/Lachhhhhhh/Model/resolve/main/xinsirUnionProMax_v10.safetensors --relative-path models/controlnet --filename xinsirUnionProMax_v10.safetensors
 
 RUN comfy model download --url https://huggingface.co/Lachhhhhhh/Model/resolve/main/photorealisticAllPurpose_v40.safetensors --relative-path models/checkpoints --filename photorealisticAllPurpose_v40.safetensors
 
