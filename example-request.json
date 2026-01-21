@@ -1,0 +1,266 @@
+{
+  "input": {
+    "workflow": {
+      "3": {
+        "inputs": {
+          "seed": 182094272313591,
+          "steps": 38,
+          "cfg": 8,
+          "sampler_name": "dpmpp_3m_sde_gpu",
+          "scheduler": "exponential",
+          "denoise": 0.8,
+          "model": [
+            "58",
+            0
+          ],
+          "positive": [
+            "21",
+            0
+          ],
+          "negative": [
+            "21",
+            1
+          ],
+          "latent_image": [
+            "19",
+            0
+          ]
+        },
+        "class_type": "KSampler",
+        "_meta": {
+          "title": "KSampler"
+        }
+      },
+      "4": {
+        "inputs": {
+          "ckpt_name": "photorealisticAllPurpose_v40.safetensors"
+        },
+        "class_type": "CheckpointLoaderSimple",
+        "_meta": {
+          "title": "CheckpointLoaderSimple"
+        }
+      },
+      "6": {
+        "inputs": {
+          "text": [
+            "42",
+            0
+          ],
+          "clip": [
+            "4",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIPTextEncode"
+        }
+      },
+      "7": {
+        "inputs": {
+          "text": "unreal, oversaturated, deformed, low quality",
+          "clip": [
+            "4",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "CLIPTextEncode"
+        }
+      },
+      "8": {
+        "inputs": {
+          "samples": [
+            "3",
+            0
+          ],
+          "vae": [
+            "4",
+            2
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "9": {
+        "inputs": {
+          "filename_prefix": "SD1.5",
+          "images": [
+            "8",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "19": {
+        "inputs": {
+          "pixels": [
+            "20",
+            0
+          ],
+          "vae": [
+            "4",
+            2
+          ]
+        },
+        "class_type": "VAEEncode",
+        "_meta": {
+          "title": "VAEEncode"
+        }
+      },
+      "20": {
+        "inputs": {
+          "value": 2048,
+          "images": [
+            "56",
+            0
+          ]
+        },
+        "class_type": "ResizeImagesByLongerEdge",
+        "_meta": {
+          "title": "ResizeImagesByLongerEdge"
+        }
+      },
+      "21": {
+        "inputs": {
+          "value": 0.35,
+          "positive": [
+            "6",
+            0
+          ],
+          "negative": [
+            "7",
+            0
+          ],
+          "control_net": [
+            "22",
+            0
+          ],
+          "image": [
+            "20",
+            0
+          ],
+          "vae": [
+            "4",
+            2
+          ]
+        },
+        "class_type": "ControlNetApplyAdvanced",
+        "_meta": {
+          "title": "ControlNetApplyAdvanced"
+        }
+      },
+      "22": {
+        "inputs": {
+          "control_net_name": "controlnetxlCNXL_xinsirCnUnionPromax.safetensors"
+        },
+        "class_type": "ControlNetLoader",
+        "_meta": {
+          "title": "ControlNetLoader"
+        }
+      },
+      "34": {
+        "inputs": {
+          "text": "High quality, ",
+          "string_b": [
+            "62",
+            1
+          ]
+        },
+        "class_type": "StringConcatenate",
+        "_meta": {
+          "title": "StringConcatenate"
+        }
+      },
+      "36": {
+        "inputs": {
+          "value": null,
+          "source": [
+            "34",
+            0
+          ]
+        },
+        "class_type": "PreviewAny",
+        "_meta": {
+          "title": "PreviewAny"
+        }
+      },
+      "42": {
+        "inputs": {
+          "text": "",
+          "string_a": [
+            "34",
+            0
+          ]
+        },
+        "class_type": "StringConcatenate",
+        "_meta": {
+          "title": "StringConcatenate"
+        }
+      },
+      "56": {
+        "inputs": {
+          "filename": "ComfyUI_00485_.png [output]"
+        },
+        "class_type": "LoadImageOutput",
+        "_meta": {
+          "title": "LoadImageOutput"
+        }
+      },
+      "57": {
+        "inputs": {
+          "value": 1,
+          "model": [
+            "4",
+            0
+          ]
+        },
+        "class_type": "UNetTemporalAttentionMultiply",
+        "_meta": {
+          "title": "UNetTemporalAttentionMultiply"
+        }
+      },
+      "58": {
+        "inputs": {
+          "value": 1.58,
+          "model": [
+            "57",
+            0
+          ]
+        },
+        "class_type": "PerturbedAttentionGuidance",
+        "_meta": {
+          "title": "PerturbedAttentionGuidance"
+        }
+      },
+      "61": {
+        "inputs": {
+          "value": false
+        },
+        "class_type": "JC_ExtraOptions",
+        "_meta": {
+          "title": "JC_ExtraOptions"
+        }
+      },
+      "62": {
+        "inputs": {
+          "text": "joycaption-beta-one",
+          "extra_options": [
+            "61",
+            0
+          ]
+        },
+        "class_type": "JC_adv",
+        "_meta": {
+          "title": "JC_adv"
+        }
+      }
+    }
+  }
+}
